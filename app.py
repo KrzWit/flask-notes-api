@@ -26,6 +26,11 @@ def _write_all(notes):
 def health():
     return {"status": "ok"}
 
+@app.get("/")
+def index():
+    return {"message": "Flask Notes API", "endpoints": ["/health", "/notes"]}
+
+
 @app.get("/notes")
 def list_notes():
     q = (request.args.get("q") or "").strip().lower()
