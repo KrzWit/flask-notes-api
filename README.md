@@ -5,21 +5,42 @@ Data is stored in a local `notes.json` file (auto-created on first write).
 
 ## Features
 - CRUD endpoints for notes (JSON in/out)
-- Text search (`?q=...`)
-- Sorting (`?sort=created_at|updated_at|title&order=asc|desc`)
-- Pagination (`?limit=&offset=`)
-- Health check endpoint
+- Text search: `?q=...`
+- Sorting: `?sort=created_at|updated_at|title&order=asc|desc`
+- Pagination: `?limit=&offset=`
+- Health check endpoint `/health`
 
-## Quick start
+---
+
+## Quick Start (local)
 
 ```bash
-# (optional) create a virtual env
 python -m venv .venv
-source .venv/bin/activate           # Windows: .venv\Scripts\activate
+source .venv/bin/activate          # Windows: .venv\Scripts\activate
+pip install -r requirements.txt    # or: pip install flask
+python app.py
+# App runs on http://127.0.0.1:5000
 
-# install dependency
-pip install flask
+## cURl examples
 
-# run the app
-python app.py                   # or: python app.py  (if file is in repo root)
-# server: http://127.0.0.1:5000
+# health
+curl http://127.0.0.1:5000/health
+
+# create
+curl -X POST http://127.0.0.1:5000/notes \
+  -H "Content-Type: application/json" \
+  -d '{"title":"First","content":"Hello Motorola!"}'
+
+# list
+curl http://127.0.0.1:5000/notes
+
+# get by id
+curl http://127.0.0.1:5000/notes/<ID>
+
+# update
+curl -X PUT http://127.0.0.1:5000/notes/<ID> \
+  -H "Content-Type: application/json" \
+  -d '{"content":"Updated"}'
+
+# delete
+curl -X DELETE http://127.0.0.1:5000/notes/<ID>
