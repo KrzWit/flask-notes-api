@@ -3,7 +3,8 @@ import json, os, uuid, datetime
 from threading import Lock
 
 app = Flask(__name__)
-DATA_FILE = os.path.join(os.path.dirname(__file__), "..", "notes.json")
+DATA_FILE = os.path.join(os.path.dirname(__file__), "notes.json")
+
 _lock = Lock()
 
 def _now_iso():
