@@ -20,9 +20,12 @@ source .venv/bin/activate          # Windows: .venv\Scripts\activate
 pip install -r requirements.txt    # or: pip install flask
 python app.py
 # App runs on http://127.0.0.1:5000
+```
+
 
 ## cURl examples
 
+```bash
 # health
 curl http://127.0.0.1:5000/health
 
