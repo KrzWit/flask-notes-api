@@ -21,5 +21,5 @@ source .venv/bin/activate           # Windows: .venv\Scripts\activate
 pip install flask
 
 # run the app
-python src/app.py                   # or: python app.py  (if file is in repo root)
+python app.py                   # or: python app.py  (if file is in repo root)
 # server: http://127.0.0.1:5000
