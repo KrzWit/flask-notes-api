@@ -47,3 +47,18 @@ curl -X PUT http://127.0.0.1:5000/notes/<ID> \
 
 # delete
 curl -X DELETE http://127.0.0.1:5000/notes/<ID>
+```
+##Run in GitHub Codespaces
+
+```bash
+# inside Codespaces terminal
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+python app.py
+```
+
+
+
+
+
